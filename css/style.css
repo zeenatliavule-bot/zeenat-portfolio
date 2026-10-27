@@ -1952,3 +1952,60 @@ footer {
     }
 
 }
+
+/* =========================================
+   PROFESSIONAL POLISH — ACCESSIBILITY & RESPONSIVE FINISH
+========================================= */
+:root {
+    --navy: #0b1b3a;
+    --dark-navy: #071329;
+    --blue: #315ee8;
+    --bright-blue: #5a7cff;
+    --light-blue: #edf2ff;
+    --very-light-blue: #f7f9ff;
+    --border: #e1e7f2;
+}
+body { text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; }
+::selection { background: rgba(49, 94, 232, .18); color: var(--navy); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 3px solid rgba(49, 94, 232, .45);
+    outline-offset: 3px;
+}
+.auth-nav-link {
+    padding: 10px 16px;
+    border: 1px solid rgba(49, 94, 232, .35);
+    border-radius: 999px;
+    color: var(--blue) !important;
+    background: rgba(255,255,255,.72);
+}
+.auth-nav-link:hover { background: var(--blue); color: #fff !important; }
+.section-title h2 { letter-spacing: -1.2px; }
+.education-card, .skill-card, .project-card, .certificate-card {
+    border: 1px solid rgba(15, 37, 79, .07);
+    box-shadow: 0 14px 40px rgba(15, 37, 79, .07);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.education-card:hover, .skill-card:hover, .project-card:hover, .certificate-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(49, 94, 232, .22);
+    box-shadow: 0 22px 48px rgba(15, 37, 79, .12);
+}
+@media (max-width: 900px) {
+    .navbar { padding-left: 5%; padding-right: 5%; }
+    .navbar nav { gap: 18px; }
+    .auth-nav-link { padding: 8px 12px; }
+}
+@media (max-width: 680px) {
+    .navbar { gap: 12px; }
+    .navbar nav { align-items: stretch; }
+    .navbar nav .auth-nav-link { display: inline-flex; justify-content: center; }
+    .download-cv { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
