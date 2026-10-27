@@ -1,16 +1,14 @@
 /*
- * Supabase browser configuration.
- * Replace both values with the URL and publishable/anon key from:
- * Supabase Dashboard → Project Settings → API.
- * Never put a service_role or secret key in this file.
+ * Supabase browser configuration for the Zeenat portfolio project.
+ * Use only the project's publishable key here; never use a service_role/secret key.
  */
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-const SUPABASE_URL = "https://YOUR_PROJECT_REF.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "YOUR_SUPABASE_PUBLISHABLE_OR_ANON_KEY";
+const SUPABASE_URL = "https://linfpcivfmhxvpgkrseq.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_7u_twd-sZNBCMm6J2Ow_UvxhzBZx";
 
 export const supabaseConfigured =
-  !SUPABASE_URL.includes("YOUR_PROJECT_REF") &&
-  !SUPABASE_PUBLISHABLE_KEY.includes("YOUR_SUPABASE");
+  SUPABASE_URL.startsWith("https://") &&
+  SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_");
 
 export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
