@@ -756,21 +756,9 @@
 </footer>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/script.js"></script>
+<script type="module" src="js/script.js"></script>
 
 <!-- Require sign-in before showing the portfolio. -->
-<script type="module">
-  import { supabase, supabaseConfigured } from "./js/supabase-config.js";
-  if (!supabaseConfigured || !supabase) {
-    window.location.replace("sign-in.html");
-  } else {
-    const { data: { session }, error } = await supabase.auth.getSession();
-    if (error || !session) window.location.replace("sign-in.html");
-  }
-</script>
-
-
-  <script type="module" src="js/require-auth.js"></script>
+<script type="module" src="js/require-auth.js"></script>
 </body>
 </html>
