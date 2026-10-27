@@ -2,6 +2,8 @@
    ZEENAT LIAVULE PORTFOLIO JAVASCRIPT
 ========================================= */
 
+import { supabase } from "./supabase-config.js";
+
 
 /* =========================================
    MOBILE MENU
@@ -93,11 +95,6 @@ window.addEventListener("scroll", function () {
    SUPABASE CONTACT FORM
 ========================================= */
 
-// This is a public/publishable key intended for browser use.
-// Database access is restricted by row-level security policies in Supabase.
-const SUPABASE_URL = "https://jrkkmvotgqflbtllkrpx.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_pGQMhs4iYtlylfpTjlZv7Q_cwvuGM_s";
-
 const contactForm = document.querySelector(".contact-form");
 const contactStatus = document.querySelector(".contact-status");
 
@@ -113,7 +110,7 @@ if (contactForm) {
             message: String(formData.get("message") || "").trim()
         };
 
-        if (!window.supabase || !window.supabase.createClient) {
+        if (!supabase) {
             if (contactStatus) contactStatus.textContent = "The contact service is unavailable right now. Please email zeenatliavule@gmail.com.";
             return;
         }
@@ -126,8 +123,7 @@ if (contactForm) {
         if (contactStatus) contactStatus.textContent = "";
 
         try {
-            const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
-            const { error } = await client
+            const { error } = await supabase
                 .from("portfolio_contact_messages")
                 .insert([payload]);
             if (error) throw error;
